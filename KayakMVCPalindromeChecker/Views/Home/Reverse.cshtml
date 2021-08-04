@@ -1,0 +1,51 @@
+﻿@model KayakMVCPalindromeChecker.Models.Palindrome
+
+    <div class="container col-xxl-8 px-4 py-5">
+        <div class="row g-5 py-5 row-cols-1 row-cols-lg-2">
+            <div class="col order-last order-lg-first border-end border-2">
+                <h1 class="display-5 fw-bold lh-1 mb-3 logoFont">Kayak MVC: A Coding Project</h1>
+                <!-- Project Description Here -->
+                <h4 class="lead">
+                    Here we reverse a string, and test it as a palindrome similar to what we did in the javascript version. This time, we do it 
+                    with C# using the MVC design pattern. Write a program that displays the reversal of an input string of characters. Display 
+                    the reversal in <strong style="color:green">GREEN</strong>, and state whether it is a Palindrome or not.
+                </h4>
+                <h5>
+                    * Palindrome - a word, phrase, or sequence that reads the same backward as forward, e.g., <span style="font-style:italic">kayak</span>
+                </h5>
+                <h2 class="mt-5 border-bottom border-2">Instructions</h2>
+                <p>Enter a word or sentence. Press theh button, and the input will be evaluated on whether it is a palindrome or not. The resulting reversal 
+                of the string will also appear.</p>
+            </div>
+            <div class="col">
+                <div>
+                    <!-- Input Form -->
+                    <h5>Enter a string</h5>
+                    @* Form goes here *@
+                    <form class="row gx-3 gy-2" asp-action="Reverse" asp-controller="Home" method="post">
+                        <div class="col">
+                            <input asp-for="InputWord" type="text" class="form-control" value="@Model.InputWord" placeholder="* type a word or phrase" aria-label="Enter A Word">
+                        </div>
+                        <div class="col-12 d-flex align-items-center justify-content-center justify-content-lg-end">
+                            <button id="btnSubmit" type="submit" class="btn btn-dark btn-lg">
+                                Check For Palindrome
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Results Section -->
+                    <h5 class="mt-5 border-bottom border-2">Reversed Result</h5>
+                    <div class="col">
+                        <p class="form-control">@Model.RevWord</p>
+                    </div>
+
+                    <h2 class="mt-5 border-bottom border-2">Palindrome Result</h2>
+                    <div class="table-responsive">
+                        <p id="results">
+                            @Model.Message
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
